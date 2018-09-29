@@ -51,9 +51,15 @@ class User
      * Получить определённые поля из таблицы пользователей
      * @return string
      */
-    public function getUsersSafe()
+    public function getUsersSafe($orderBy = '')
     {
-        $query = 'SELECT `id`, `login`, `fio`, `email`, `address` FROM `' . self::TABLE . '`';
+        $queryAddon = '';
+
+        if (!empty($orderBy)) {
+            $queryAddon = ' ORDER BY `' . filter_var($orderBy, FILTER_SANITIZE_STRING) . '` ';
+        }
+
+        $query = 'SELECT `id`, `login`, `fio`, `email`, `address` FROM `' . self::TABLE . '`' . $queryAddon;
         $params = [
         ];
 

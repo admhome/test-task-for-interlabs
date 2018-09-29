@@ -26,11 +26,10 @@ function buildTableData(json) {
 /**
  * load users data from table
  */
-function loadUsersData() {
+function loadUsersData(data = {}) {
     $.ajax({
         url: '/ajax.php?action=getUsers',
-        data: {
-        },
+        data: data,
         type: 'GET',
         dataType: 'json'
     })
@@ -151,6 +150,16 @@ $(function() {
             });
 
         $('#modal_user_add').modal('hide');
+    });
+
+    $('.js__sort_fio').on('click', function(){
+        loadUsersData({order_by: 'fio'});
+    });
+    $('.js__sort_email').on('click', function(){
+        loadUsersData({order_by: 'email'});
+    });
+    $('.js__sort_address').on('click', function(){
+        loadUsersData({order_by: 'address'});
     });
 
     if (typeof $('#data_body') != undefined) {

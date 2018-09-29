@@ -35,7 +35,8 @@ switch($action) {
      * return: all users or fail
      */
     case 'getUsers':
-        $usersList = $user->getUsersSafe();
+        $orderBy = filter_input(INPUT_GET, 'order_by', FILTER_SANITIZE_STRING);
+        $usersList = $user->getUsersSafe($orderBy);
 
         echo $usersList;
         break;

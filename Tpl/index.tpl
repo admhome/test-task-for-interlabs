@@ -5,9 +5,9 @@
             <table class="table table-hover table-responsive">
                 <thead>
                 <tr>
-                    <td>ФИО</td>
-                    <td>E-mail</td>
-                    <td>Адрес</td>
+                    <td class="js_sortable js__sort_fio">ФИО</td>
+                    <td class="js_sortable js__sort_email">E-mail</td>
+                    <td class="js_sortable js__sort_address">Адрес</td>
                     <td>&nbsp;</td>
                     <td>Удалить</td>
                 </tr>
